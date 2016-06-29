@@ -14,7 +14,7 @@ class CommandManager extends AbstractPluginManager
 	 *
 	 * @param  mixed $plugin
 	 * @return void
-	 * @throws Exception\RuntimeException if invalid
+	 * @throws Exception\InvalidServiceException if invalid
 	 */
 	public function validatePlugin($plugin)
 	{
@@ -23,7 +23,7 @@ class CommandManager extends AbstractPluginManager
 			return;
 		}
 
-		throw new Exception\RuntimeException(sprintf(
+		throw new Exception\InvalidServiceException(sprintf(
 			'Plugin of type %s is invalid; must implement %s\CommandInterface'
 			, is_object($plugin) ? get_class($plugin) : gettype($plugin)
 			, __NAMESPACE__

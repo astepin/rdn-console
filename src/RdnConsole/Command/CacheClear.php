@@ -31,7 +31,7 @@ class CacheClear extends AbstractCommand
 		$items = new \RecursiveIteratorIterator($dirIterator, \RecursiveIteratorIterator::CHILD_FIRST);
 		foreach ($items as $item)
 		{
-			if (substr($item->getFileName(), 0, 1) == '.')
+			if (substr($item->getFilename(), 0, 1) == '.')
 			{
 				continue;
 			}
@@ -39,7 +39,7 @@ class CacheClear extends AbstractCommand
 			if ($item->isFile())
 			{
 				ErrorHandler::start();
-				unlink($item->getPathName());
+				unlink($item->getPathname());
 				ErrorHandler::stop(true);
 
 				if (file_exists($item->getPathname()))
@@ -50,7 +50,7 @@ class CacheClear extends AbstractCommand
 			else
 			{
 				ErrorHandler::start();
-				rmdir($item->getPathName());
+				rmdir($item->getPathname());
 				ErrorHandler::stop(true);
 
 				if (file_exists($item->getPathname()))

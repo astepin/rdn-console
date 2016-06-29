@@ -2,30 +2,30 @@
 
 namespace RdnConsole\Factory\Controller;
 
+use Interop\Container\ContainerInterface;
+use Interop\Container\Exception\ContainerException;
 use RdnConsole\Controller;
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorAwareInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
+use Zend\ServiceManager\Exception\ServiceNotCreatedException;
+use Zend\ServiceManager\Exception\ServiceNotFoundException;
+use Zend\ServiceManager\Factory\FactoryInterface;
 
 class Index implements FactoryInterface
 {
-	/**
-	 * Create service
-	 *
-	 * @param ServiceLocatorInterface $controllers
-	 * @return Controller\Index
-	 */
-	public function createService(ServiceLocatorInterface $controllers)
-	{
-		if ($controllers instanceof ServiceLocatorAwareInterface)
-		{
-			$services = $controllers->getServiceLocator();
-		}
-		else
-		{
-			$services = $controllers;
-		}
 
-		return new Controller\Index($services->get('RdnConsole\Application'));
-	}
+    /**
+     * Create an object
+     *
+     * @param  ContainerInterface $container
+     * @param  string $requestedName
+     * @param  null|array $options
+     * @return object
+     * @throws ServiceNotFoundException if unable to resolve the service.
+     * @throws ServiceNotCreatedException if an exception is raised when
+     *     creating a service.
+     * @throws ContainerException if any other error occurs
+     */
+    public function __invoke(ContainerInterface $container, $requestedName, array $options = NULL)
+    {
+        return new Controller\Index($container->get('RdnConsole\Application'));
+    }
 }

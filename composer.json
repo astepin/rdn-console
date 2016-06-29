@@ -1,25 +1,39 @@
 {
-	"name": "radnan/rdn-console",
-	"description": "Zend Framework 2 Symfony Console module",
-	"keywords": ["zf2", "zend", "sf2", "symfony", "console"],
-	"license": "MIT",
-	"authors": [
-		{
-			"name": "radnan",
-			"email": "rafiadnan47@gmail.com"
-		}
-	],
-	"require": {
-		"radnan/rdn-factory": "1.*",
-		"symfony/console": "2.*",
-		"zendframework/zend-mvc": "2.*",
-		"zendframework/zend-servicemanager": "2.*",
-		"zendframework/zend-stdlib": "2.*"
-	},
-	"autoload": {
-		"psr-0": {
-			"RdnConsole\\": "src/"
-		}
-	},
-	"bin": ["bin/console"]
+  "name": "radnan/rdn-console",
+  "description": "Zend Framework 3 Symfony Console module",
+  "keywords": [
+    "zf2",
+    "zend",
+    "sf2",
+    "symfony",
+    "console"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "radnan",
+      "email": "rafiadnan47@gmail.com"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/astepin/rdn-factory"
+    }
+  ],
+  "require": {
+    "radnan/rdn-factory": "dev-master",
+    "symfony/console": "^3.1",
+    "zendframework/zend-mvc": "^3.0",
+    "zendframework/zend-servicemanager": "^3.1",
+    "zendframework/zend-stdlib": "^3.0"
+  },
+  "autoload": {
+    "psr-0": {
+      "RdnConsole\\": "src/"
+    }
+  },
+  "bin": [
+    "bin/console"
+  ]
 }

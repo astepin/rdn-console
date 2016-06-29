@@ -2,13 +2,11 @@
 
 namespace RdnConsole\Factory\Command;
 
+use Interop\Container\ContainerInterface;
 use RdnConsole\Command;
 use RdnFactory\AbstractFactory;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorAwareInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
 
 abstract class AbstractCommandFactory extends AbstractFactory implements
 	Command\ConfigurableInterface
@@ -70,19 +68,14 @@ abstract class AbstractCommandFactory extends AbstractFactory implements
 		}
 	}
 
-	/**
-	 * Create service
-	 *
-	 * @param ServiceLocatorInterface $commands
-	 * @return self
-	 */
-	public function createService(ServiceLocatorInterface $commands)
-	{
-		$this->setServiceLocator($commands);
-		return $this;
-	}
+    public function __invoke(ContainerInterface $container, $requestedName, array $options = NULL)
+    {
+        $this->setServiceLocator($container);
+        return $this;
+    }
 
-	public function setAdapter(Command\AdapterInterface $adapter)
+
+    public function setAdapter(Command\AdapterInterface $adapter)
 	{
 		$this->adapter = $adapter;
 	}
