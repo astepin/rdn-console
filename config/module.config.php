@@ -19,7 +19,7 @@ return [
 
     'controllers' => [
         'factories' => [
-			'RdnConsole:Index' => 'RdnConsole\Factory\Controller\Index',
+			'RdnConsole:Index' => RdnConsole\Factory\Controller\Index::class,
         ],
     ],
 
@@ -42,14 +42,14 @@ return [
 
     'rdn_console_commands' => [
         'factories' => [
-			'RdnConsole:CacheClear' => 'RdnConsole\Factory\Command\CacheClear',
+			'RdnConsole:CacheClear' => RdnConsole\Factory\Command\CacheClear::class,
         ],
     ],
 
     'service_manager' => [
         'factories' => [
-			'RdnConsole\Application' => 'RdnConsole\Factory\Application',
-			'RdnConsole\Command\CommandManager' => 'RdnConsole\Factory\Command\CommandManager',
+			'RdnConsole\Application' => RdnConsole\Factory\Application::class,
+			'RdnConsole\Command\CommandManager' => RdnConsole\Factory\Command\CommandManager::class,
         ],
     ],
 ];
