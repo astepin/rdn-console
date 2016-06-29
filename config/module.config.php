@@ -1,55 +1,55 @@
 <?php
 
-return array(
-	'console' => array(
-		'router' => array(
-			'routes' => array(
-				'rdn-console' => array(
-					'type' => 'catchall',
-					'options' => array(
-						'defaults' => array(
+return [
+    'console' => [
+        'router' => [
+            'routes' => [
+                'rdn-console' => [
+                    'type' => 'catchall',
+                    'options' => [
+                        'defaults' => [
 							'controller' => 'RdnConsole:Index',
 							'action' => 'index',
-						),
-					),
-				),
-			),
-		),
-	),
+                        ],
+                    ],
+                ],
+            ],
+        ],
+    ],
 
-	'controllers' => array(
-		'factories' => array(
+    'controllers' => [
+        'factories' => [
 			'RdnConsole:Index' => 'RdnConsole\Factory\Controller\Index',
-		),
-	),
+        ],
+    ],
 
-	'rdn_console' => array(
-		'application' => array(
+    'rdn_console' => [
+        'application' => [
 			'name' => 'RdnConsole',
 			'version' => '1.2.0',
-		),
+        ],
 
-		'commands' => array(
+        'commands' => [
 			//'RdnConsole:CacheClear',
-		),
+        ],
 
-		'config' => array(
-			'cache_clear' => array(
+        'config' => [
+            'cache_clear' => [
 				'directory' => 'data/cache',
-			),
-		),
-	),
+            ],
+        ],
+    ],
 
-	'rdn_console_commands' => array(
-		'factories' => array(
+    'rdn_console_commands' => [
+        'factories' => [
 			'RdnConsole:CacheClear' => 'RdnConsole\Factory\Command\CacheClear',
-		),
-	),
+        ],
+    ],
 
-	'service_manager' => array(
-		'factories' => array(
+    'service_manager' => [
+        'factories' => [
 			'RdnConsole\Application' => 'RdnConsole\Factory\Application',
 			'RdnConsole\Command\CommandManager' => 'RdnConsole\Factory\Command\CommandManager',
-		),
-	),
-);
+        ],
+    ],
+];
