@@ -16,7 +16,7 @@ class CommandManager extends AbstractPluginManager
 	 * @return void
 	 * @throws Exception\InvalidServiceException if invalid
 	 */
-	public function validatePlugin($plugin)
+	public function validate($plugin)
 	{
 		if ($plugin instanceof CommandInterface)
 		{
