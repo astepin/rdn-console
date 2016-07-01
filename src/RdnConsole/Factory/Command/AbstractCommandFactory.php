@@ -68,13 +68,6 @@ abstract class AbstractCommandFactory extends AbstractFactory implements
 		}
 	}
 
-    public function __invoke(ContainerInterface $container, $requestedName, array $options = NULL)
-    {
-        $this->setServiceLocator($container);
-        return $this;
-    }
-
-
     public function setAdapter(Command\AdapterInterface $adapter)
 	{
 		$this->adapter = $adapter;
