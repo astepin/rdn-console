@@ -30,7 +30,7 @@ class CommandManager implements FactoryInterface
         $config = $container->get('Config');
         $config = new Config($config['rdn_console_commands']);
 
-        $commands = new Command\CommandManager($container, $config);
+        $commands = new Command\CommandManager($container, $config->toArray());
 
         return $commands;
     }
